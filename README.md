@@ -1,11 +1,11 @@
-# Automacao-demosite-cypress-web
+## Automação - Demosite - Cypress - Web
 
 - Este projeto possui scripts de automações utilizando o Cypress no portal [Demosite](https://demoqa.com/).
 - Fonte: [Github](https://github.com/tiagofreitassp/automacao-demosite-cypress-web)
 
 ---
 
-# Requisitos
+## Requisitos
 
 - Node.js
 - NPM
@@ -13,20 +13,20 @@
 
 ---
 
-# Antes de editar e executar
+## Antes de editar e executar
 
-- Ao salvar o projeto localmente abra o CMD, Terminal ou o Terminal do Visual Studio Code e vá até o diretório e digite o comando '**npm install**' sem as aspas para baixar e instalar as dependências Node, sem isso, não será possível executar o projeto.
-- Só precisa fazer este procedimento quando a pasta 'node_modules' estiver ausente, lembre-se que não é recomendado esta pasta subir no GIT devido o tamanho do mesmo. Por isso nunca remova a linha 'node_modules/' do arquivo gitignore.
+- Ao salvar o projeto localmente abra o CMD, Terminal ou o Terminal do Visual Studio Code e vá até o diretório e digite o comando **npm install** para baixar e instalar as dependências Node, sem isso, não será possível executar o projeto.
+- Só precisa fazer este procedimento quando a pasta **node_modules** estiver ausente, lembre-se que não é recomendado esta pasta subir no GIT devido o tamanho do mesmo. Por isso nunca remova a linha **node_modules/** do arquivo gitignore.
 
 ---
 
-# Ambiente
+## Ambiente
 
 - Este projeto pode ser executado no Windows, MacOS e no Linux.
 
 ---
 
-# Comandos de execuções
+## Comandos de execuções
 
 - **Abrir o cypress no Front-end:** npm run cypress:open
 - **Executar o cypress no Back-end:** npm run cypress:run
