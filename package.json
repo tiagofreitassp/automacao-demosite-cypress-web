@@ -2,6 +2,7 @@
   "name": "automacao-demosite-cypress-web",
   "version": "1.0.0",
   "description": "Scripts de automações diversas no portal do DemoSite usando Cypress",
+  "author": "Tiago Freitas - Developer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
