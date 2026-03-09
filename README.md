@@ -34,5 +34,8 @@
 - **Executar via linha de comando uma classe especifica com a janela do navegador aberta:** npm run cypress:run -- --spec cypress/integration/basic.spec.js --headed
 - **Executar via linha de comando uma classe especifica com a janela do navegador aberta sem fecha-la no final da execução:** npm run cypress:run -- --spec cypress/integration/basic.spec.js --headed --no-exit
 
+## Observações
+- O plugin **cypress-xpath** para o Cypress interagir com elementos com xPath está depreciado, mas ele pode ser usado. Recomendado evitar usar xPath no Cypress, achei por bem deixa-lo instalado caso deseje utiliza-lo. Você irá notar que nos scripts nenhum elemento está com xPath. Sempre que possível utilize ID, ClassName, CSS ou LinkText.
+
 ## Links úteis
 - [Documentação do Cypress](https://docs.cypress.io/app/get-started/why-cypress)

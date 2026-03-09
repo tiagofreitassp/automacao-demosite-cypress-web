@@ -20,5 +20,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-require('cypress-xpath');
 import loc from './locators'
+
+Cypress.Commands.add('acessarMenuForms', () => {
+    cy.get(loc.MENU.FORMS).click()
+    cy.get(loc.MENU_FORMS.ROUTER_LINK).click()
+})
