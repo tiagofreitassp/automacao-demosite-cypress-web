@@ -20,6 +20,11 @@
 
 ---
 
+# Ambiente
+- Este projeto pode ser executado no Windows, MacOS e no Linux.
+
+---
+
 # Comandos de execuções
 
 - **Abrir o cypress no Front-end:** npm run cypress:open
