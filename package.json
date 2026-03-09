@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open":"cypress open",
+    "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tiagofreitassp/automacao-demosite-cypress-web.git"
   },
-  "keywords": ["cypress", "automation", "demosite", "web"],
+  "keywords": [
+    "cypress",
+    "automation",
+    "demosite",
+    "web"
+  ],
   "author": "Tiago Freitas - Developer",
   "license": "ISC",
   "type": "commonjs",
@@ -22,6 +27,7 @@
   "homepage": "https://github.com/tiagofreitassp/automacao-demosite-cypress-web#readme",
   "devDependencies": {
     "cypress": "^15.11.0",
+    "cypress-xpath": "^2.0.1",
     "dotenv": "^17.3.1"
   }
 }

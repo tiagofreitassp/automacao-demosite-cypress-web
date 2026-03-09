@@ -33,3 +33,6 @@
 - **Executar via linha de comando uma classe especifica:** npm run cypress:run -- --spec cypress/integration/basic.spec.js
 - **Executar via linha de comando uma classe especifica com a janela do navegador aberta:** npm run cypress:run -- --spec cypress/integration/basic.spec.js --headed
 - **Executar via linha de comando uma classe especifica com a janela do navegador aberta sem fecha-la no final da execução:** npm run cypress:run -- --spec cypress/integration/basic.spec.js --headed --no-exit
+
+## Links úteis
+- [Documentação do Cypress](https://docs.cypress.io/app/get-started/why-cypress)
