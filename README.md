@@ -1,5 +1,5 @@
 # Automacao-demosite-cypress-web
-Este projeto possui scripts de automações utilizando o Cypress no portal DemoSite.
+- Este projeto possui scripts de automações utilizando o Cypress no portal DemoSite.
 
 # Requisitos
 - Node.js
