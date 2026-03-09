@@ -1,6 +1,7 @@
 # Automacao-demosite-cypress-web
 
 - Este projeto possui scripts de automações utilizando o Cypress no portal DemoSite.
+- Git: https://github.com/tiagofreitassp/automacao-demosite-cypress-web 
 
 ---
 
