@@ -35,4 +35,9 @@ describe('Formulários', () => {
         cy.get(loc.FORMS.CITY).should('be.visible')
         cy.get(loc.FORMS.SUBMIT).should('be.visible')
     }) 
+
+    it('Deve preencher o formulário com sucesso', () => {
+        cy.preencherFormulario()
+        //cy.validarDadosSubmetidos()
+    })
 })
