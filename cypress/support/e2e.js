@@ -23,7 +23,7 @@ Cypress.ElementSelector.defaults({
     selectorPriority: ['data-wc', 'data-cy', 'data-test', 'data-testid', 'id', 'class', 'attributes', 'tag', 'nth-child']
 })
 
-function dataHora() {
+function obterDataHora() {
   const now = new Date();
   const parts = new Intl.DateTimeFormat('pt-BR', {
     timeZone: 'America/Sao_Paulo',
@@ -49,7 +49,7 @@ afterEach(function () {
     : (this.currentTest.title || 'test');
 
   const safeTitle = fullTitle.replace(/[\/\\?%*:|"<>]/g, '-').replace(/\s+/g, ' ').trim();
-  const timestamp = dataHora();
+  const timestamp = obterDataHora();
   const screenshotName = `${safeTitle} -- ${timestamp}`;
 
   // salva sempre; troque a condição para somente falha: (this.currentTest.state === 'failed')
