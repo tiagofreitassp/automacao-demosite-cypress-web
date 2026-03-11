@@ -1,0 +1,16 @@
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "gender": "Male",
+    "mobile": "1234567890",
+    "dayOfBirth": "15",
+    "monthOfBirth": "May",
+    "yearOfBirth": "1990",
+    "subjects": ["Maths", "Physics", "Chemistry", "Biology", "Computer Science"],
+    "hobbies": ["Sports","Reading","Music"],
+    "picture": "profile.jpg",
+    "currentAddress": "123 Main St, Anytown, USA",
+    "state": ["NCR","Uttar Pradesh","Haryana","Rajasthan"],
+    "city": ["Delhi","Gurgaon","Noida","Agra","Lucknow","Kanpur","Faridabad","Sonepat","Jaipur","Jaiselmer","Jodhpur","Bikaner"]
+}

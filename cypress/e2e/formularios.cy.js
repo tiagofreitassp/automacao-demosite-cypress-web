@@ -2,6 +2,7 @@
 
 import loc from '../support/locators'
 import '../support/commands'
+import '../support/commandsForm'
 
 describe('Formulários', () => {
     beforeEach(() => {
@@ -38,6 +39,6 @@ describe('Formulários', () => {
 
     it('Deve preencher o formulário com sucesso', () => {
         cy.preencherFormulario()
-        //cy.validarDadosSubmetidos()
+        cy.validarDadosSubmetidos()
     })
 })
