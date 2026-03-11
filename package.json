@@ -12,12 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/tiagofreitassp/automacao-demosite-cypress-web.git"
   },
-  "keywords": [
-    "cypress",
-    "automation",
-    "demosite",
-    "web"
-  ],
+  "keywords": [],
   "author": "Tiago Freitas - Developer",
   "license": "ISC",
   "type": "commonjs",

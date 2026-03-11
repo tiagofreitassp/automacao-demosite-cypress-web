@@ -2,6 +2,7 @@
 
 import loc from '../support/locators'
 import '../support/commands'
+import '../support/commandsForm'
 
 describe('Formulários', () => {
     beforeEach(() => {
@@ -35,4 +36,9 @@ describe('Formulários', () => {
         cy.get(loc.FORMS.CITY).should('be.visible')
         cy.get(loc.FORMS.SUBMIT).should('be.visible')
     }) 
+
+    it('Deve preencher o formulário com sucesso', () => {
+        cy.preencherFormulario()
+        cy.validarDadosSubmetidos()
+    })
 })

@@ -26,3 +26,11 @@ Cypress.Commands.add('acessarMenuForms', () => {
     cy.get(loc.MENU.FORMS).click()
     cy.get(loc.MENU_FORMS.ROUTER_LINK).click()
 })
+
+Cypress.Commands.add('gerarScreenshot', (nome) => {
+    cy.screenshot(nome, {
+        blackout: ['#ads'], // esconde elementos
+        capture: 'viewport', // ou 'runner', 'fullPage'
+        scale: true
+    });
+})
