@@ -10,6 +10,7 @@
 - Node.js
 - NPM
 - Visual Studio Code (recomendado)
+- Cypress
 
 ---
 
