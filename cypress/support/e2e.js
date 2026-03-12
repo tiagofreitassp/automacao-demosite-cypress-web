@@ -54,5 +54,4 @@ afterEach(function () {
 
   // salva sempre; troque a condição para somente falha: (this.currentTest.state === 'failed')
   cy.screenshot(screenshotName, { capture: 'runner' });
-}
-);
+});

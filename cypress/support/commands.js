@@ -27,10 +27,29 @@ Cypress.Commands.add('acessarMenuForms', () => {
     cy.get(loc.MENU_FORMS.ROUTER_LINK).click()
 })
 
-Cypress.Commands.add('gerarScreenshot', (nome) => {
-    cy.screenshot(nome, {
-        blackout: ['#ads'], // esconde elementos
-        capture: 'viewport', // ou 'runner', 'fullPage'
-        scale: true
-    });
-})
+Cypress.Commands.add('gerarScreenshot', (cenario, nome) => {
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  }).formatToParts(now);
+
+  const map = {};
+  parts.forEach(p => { if (p.type !== 'literal') map[p.type] = p.value; });
+
+  const timestamp = `${map.day}-${map.month}-${map.year}_${map.hour}-${map.minute}-${map.second}`;
+  const base = `${(cenario || '').toString().trim()}${cenario && nome ? ' - ' : ''}${(nome || '').toString().trim()}`.trim() || 'screenshot';
+  const safeBase = base.replace(/[\/\\?%*:|"<>]/g, '-').replace(/\s+/g, ' ').trim();
+  const screenshotName = `${safeBase} -- ${timestamp}`;
+
+  cy.screenshot(screenshotName, {
+    capture: 'runner',
+    scale: true
+  });
+});
