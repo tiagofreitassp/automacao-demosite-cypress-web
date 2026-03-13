@@ -14,6 +14,7 @@
 import utils from '../support/utils'
 const fs = require('fs');
 const path = require('path');
+const XLSX = require('xlsx');
 
 module.exports = (on, config) => {
   // -------- Cria uma pasta de screenshots com timestamp para cada execução -------- 
@@ -90,6 +91,16 @@ module.exports = (on, config) => {
     results.video = newVideoPath;
     return null;
   });
+
+  // Lê dados de um arquivo Excel e os torna disponíveis como variável de ambiente
+  const excelPath = path.join(config.projectRoot, 'cypress', 'fixtures', 'dados.xlsx');
+  if (fs.existsSync(excelPath)) {
+    const workbook = XLSX.readFile(excelPath);
+    const sheetName = workbook.SheetNames[0];
+    const sheet = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+    config.env.excelRows = JSON.stringify(rows);
+  }
 
   return config;
 };
