@@ -31,9 +31,9 @@
 
 - **Abrir o cypress no Front-end:** npm run cypress:open
 - **Executar o cypress no Back-end:** npm run cypress:run
-- **Executar via linha de comando uma classe especifica:** npm run cypress:run -- --spec cypress/integration/basic.spec.js
-- **Executar via linha de comando uma classe especifica com a janela do navegador aberta:** npm run cypress:run -- --spec cypress/integration/basic.spec.js --headed
-- **Executar via linha de comando uma classe especifica com a janela do navegador aberta sem fecha-la no final da execução:** npm run cypress:run -- --spec cypress/integration/basic.spec.js --headed --no-exit
+- **Executar via linha de comando uma classe especifica:** npm run cypress:run --spec cypress/e2e/formuario.cy.js
+- **Executar via linha de comando uma classe especifica com a janela do navegador aberta:** npm run cypress:run --spec cypress/e2e/formuario.cy.js --headed
+- **Executar via linha de comando uma classe especifica com a janela do navegador aberta sem fecha-la no final da execução:** npm run cypress:run --spec cypress/e2e/formuario.cy.js --headed --no-exit
 
 ## Evidências
 
@@ -41,7 +41,9 @@
 - **Vídeos:** A cada execução usando comando RUN (modo headless) os vídeos são gerados e salvos dentro do diretório **cypress/vídeos**. Caso contrário, se executar com o comando OPEN, por padrão o Cypress não irá gerar vídeos.
 
 ## Observações
-- O plugin **cypress-xpath** para o Cypress interagir com elementos com xPath está depreciado, mas ele pode ser usado. Recomendado evitar usar xPath no Cypress, achei por bem deixa-lo instalado caso deseje utiliza-lo. Você irá notar que nos scripts nenhum elemento está com xPath. Sempre que possível utilize ID, ClassName, CSS ou LinkText.
+
+- O plugin **cypress-xpath** para o Cypress interagir com elementos com xPath está depreciado, mas ele pode ser usado. Recomendado evitar usar xPath no Cypress, achei por bem deixa-lo instalado caso deseje utiliza-lo. Você irá notar que nos scripts nenhum elemento está com xPath. Sempre que possível utilize ID, ClassName, CSS, PartialText ou LinkText.
 
 ## Links úteis
+
 - [Documentação do Cypress](https://docs.cypress.io/app/get-started/why-cypress)
