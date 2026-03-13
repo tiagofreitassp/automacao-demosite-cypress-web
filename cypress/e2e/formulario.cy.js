@@ -34,8 +34,27 @@ describe('Formulário', () => {
     }) 
 
     it('Deve preencher o formulário com sucesso', () => {
-        cy.preencherFormulario()
-        cy.validarDadosSubmetidos()
+        cy.fixture('formData').then((dados) => {
+          const massas = {
+            firstName: dados.firstName,
+            lastName: dados.lastName,
+            email: dados.email,
+            gender: dados.gender,
+            mobile: dados.mobile,
+            dayOfBirth: dados.dayOfBirth,
+            monthOfBirth: dados.monthOfBirth,
+            yearOfBirth: dados.yearOfBirth,
+            subjects: dados.subjects[0],
+            hobbies: dados.hobbies[0],
+            picture: dados.picture,
+            currentAddress: dados.currentAddress,
+            state: dados.state[0],
+            city: dados.city[0]
+          }
+
+          cy.preencherFormulario(massas)
+          cy.validarDadosSubmetidos(massas)
+      })
     })
 })
 
@@ -52,9 +71,26 @@ describe('Formulário XLSX', () => {
         cy.visit('https://demoqa.com/automation-practice-form')
     })
 
-    it(`Deve preencher o formulário com sucesso ${idx + 1}`, () => {
-      cy.preencherFormulario()
-      cy.validarDadosSubmetidos()
+    it(row.CENARIO+` ${idx + 1}`, () => {
+      const massas = {
+            firstName: row.FIRST_NAME,
+            lastName: row.LAST_NAME,
+            email: row.EMAIL,
+            gender: row.GENDER,
+            mobile: row.MOBILE,
+            dayOfBirth: row.DAY_OF_BIRTH,
+            monthOfBirth: row.MONTH_OF_BIRTH,
+            yearOfBirth: row.YEAR_OF_BIRTH,
+            subjects: row.SUBJECTS,
+            hobbies: row.HOBBIES,
+            picture: row.PICTURE,
+            currentAddress: row.CURRENT_ADDRESS,
+            state: row.STATE,
+            city: row.CITY
+          }
+
+      cy.preencherFormulario(massas)
+      cy.validarDadosSubmetidos(massas)
     });
   });
 });
