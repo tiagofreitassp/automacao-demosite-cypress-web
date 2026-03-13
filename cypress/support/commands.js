@@ -21,6 +21,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import loc from './locators'
+import utils from '../support/utils'
 
 Cypress.Commands.add('acessarMenuForms', () => {
     cy.get(loc.MENU.FORMS).click()
@@ -28,20 +29,8 @@ Cypress.Commands.add('acessarMenuForms', () => {
 })
 
 Cypress.Commands.add('gerarScreenshot', (cenario, nome) => {
-  const now = new Date();
-  const parts = new Intl.DateTimeFormat('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
-  }).formatToParts(now);
-
   const map = {};
-  parts.forEach(p => { if (p.type !== 'literal') map[p.type] = p.value; });
+  utils.obterDataHora().forEach(p => { if (p.type !== 'literal') map[p.type] = p.value; });
 
   const timestamp = `${map.day}-${map.month}-${map.year}_${map.hour}-${map.minute}-${map.second}`;
   const base = `${(cenario || '').toString().trim()}${cenario && nome ? ' - ' : ''}${(nome || '').toString().trim()}`.trim() || 'screenshot';
