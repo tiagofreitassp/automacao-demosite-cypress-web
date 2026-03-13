@@ -92,7 +92,7 @@ module.exports = (on, config) => {
     return null;
   });
 
-  // Lê dados de um arquivo Excel e os torna disponíveis como variável de ambiente
+  // --------  Lê dados de um arquivo Excel e os torna disponíveis como variável de ambiente --------
   const excelPath = path.join(config.projectRoot, 'cypress', 'fixtures', 'dados.xlsx');
   if (fs.existsSync(excelPath)) {
     const workbook = XLSX.readFile(excelPath);
