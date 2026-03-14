@@ -11,31 +11,14 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
+import utils from '../support/utils'
 const fs = require('fs');
 const path = require('path');
-
-function obterDataHora() {
-  const now = new Date();
-  const parts = new Intl.DateTimeFormat('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
-  }).formatToParts(now);
-
-  const map = {};
-  parts.forEach(p => { if (p.type !== 'literal') map[p.type] = p.value; });
-
-  return `${map.day}-${map.month}-${map.year}_${map.hour}-${map.minute}-${map.second}`;
-}
+const XLSX = require('xlsx');
 
 module.exports = (on, config) => {
   // -------- Cria uma pasta de screenshots com timestamp para cada execução -------- 
-  const ts = obterDataHora();
+  const ts = utils.obterDataHora();
   const customFolderName = `Evidências Cypress_${ts}`; // troque "minhapasta" se quiser outro nome
   const screenshotsPath = path.join(config.projectRoot, '/cypress/screenshots/', customFolderName);
 
@@ -49,7 +32,7 @@ module.exports = (on, config) => {
   // --------  Gera e move os vídeos para uma pasta com timestamp para cada execução --------
 
   const prefix = 'Evidencias Cypress';
-  const vd = obterDataHora(); // ex: 11-03-2026_10-30-05
+  const vd = utils.obterDataHora(); // ex: 11-03-2026_10-30-05
 
   // pasta onde queremos que os vídeos fiquem para esta execução
   const evidenciasFolder = path.join(config.projectRoot, '/cypress/videos/', `${prefix}-${vd}`);
@@ -65,7 +48,7 @@ module.exports = (on, config) => {
   on('after:spec', (spec, results) => {
     if (!results || !results.video) return null;
 
-    const tsSpec = obterDataHora(); // timestamp do momento do after:spec
+    const tsSpec = utils.obterDataHora(); // timestamp do momento do after:spec
     const specName = spec.name || spec.relative || 'spec';
     const safeSpec = specName.replace(/[\/\\?%*:|"<>]/g, '-').replace(/\s+/g, ' ').trim();
 
@@ -108,6 +91,16 @@ module.exports = (on, config) => {
     results.video = newVideoPath;
     return null;
   });
+
+  // --------  Lê dados de um arquivo Excel e os torna disponíveis como variável de ambiente --------
+  const excelPath = path.join(config.projectRoot, 'cypress', 'fixtures', 'dados.xlsx');
+  if (fs.existsSync(excelPath)) {
+    const workbook = XLSX.readFile(excelPath);
+    const sheetName = workbook.SheetNames[0];
+    const sheet = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+    config.env.excelRows = JSON.stringify(rows);
+  }
 
   return config;
 };
