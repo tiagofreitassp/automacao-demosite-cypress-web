@@ -67,30 +67,34 @@ describe('Formulário XLSX', () => {
   }
 
   rows.forEach((row, idx) => {
-    beforeEach(() => {
+    let executar = row.EXECUTAR.toUpperCase();
+
+    if(executar === 'SIM') {
+      beforeEach(() => {
         cy.visit('https://demoqa.com/automation-practice-form')
-    })
+      })
 
-    it(row.CENARIO+` ${idx + 1}`, () => {
-      const massas = {
-            firstName: row.FIRST_NAME,
-            lastName: row.LAST_NAME,
-            email: row.EMAIL,
-            gender: row.GENDER,
-            mobile: row.MOBILE,
-            dayOfBirth: row.DAY_OF_BIRTH,
-            monthOfBirth: row.MONTH_OF_BIRTH,
-            yearOfBirth: row.YEAR_OF_BIRTH,
-            subjects: row.SUBJECTS,
-            hobbies: row.HOBBIES,
-            picture: row.PICTURE,
-            currentAddress: row.CURRENT_ADDRESS,
-            state: row.STATE,
-            city: row.CITY
-          }
+      it(row.CENARIO+` ${idx + 1}`, () => {
+        const massas = {
+              firstName: row.FIRST_NAME,
+              lastName: row.LAST_NAME,
+              email: row.EMAIL,
+              gender: row.GENDER,
+              mobile: row.MOBILE,
+              dayOfBirth: row.DAY_OF_BIRTH,
+              monthOfBirth: row.MONTH_OF_BIRTH,
+              yearOfBirth: row.YEAR_OF_BIRTH,
+              subjects: row.SUBJECTS,
+              hobbies: row.HOBBIES,
+              picture: row.PICTURE,
+              currentAddress: row.CURRENT_ADDRESS,
+              state: row.STATE,
+              city: row.CITY
+            }
 
-      cy.preencherFormulario(massas)
-      cy.validarDadosSubmetidos(massas)
-    });
+        cy.preencherFormulario(massas)
+        cy.validarDadosSubmetidos(massas)
+      });
+    }
   });
 });

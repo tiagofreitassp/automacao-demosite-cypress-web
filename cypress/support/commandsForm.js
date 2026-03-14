@@ -69,8 +69,16 @@ Cypress.Commands.add('escolherGenero', (genero) => {
 Cypress.Commands.add('inserirDataDeAniversario', (dia,mes,ano) => {
     cy.get(loc.FORMS.DATE_OF_BIRTH).click()
     cy.get('.react-datepicker__month-select').select(mes)
-    cy.get('.react-datepicker__year-select').select(ano)
-    cy.get('.react-datepicker__day--0' + dia).click()
+    cy.get('.react-datepicker__year-select').select(ano.toString(), {force: true})
+    cy.clicarNoDiaDoMes(dia)
+})
+
+Cypress.Commands.add('clicarNoDiaDoMes', (dia) => {
+    if(dia > 0 && dia <= 9){
+        cy.get('.react-datepicker__day--00' + dia).first().click();
+    } else {
+        cy.get('.react-datepicker__day--0' + dia).last().click();
+    }
 })
 
 Cypress.Commands.add('escolherHobbie', (hobbie) => {
