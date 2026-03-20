@@ -4,7 +4,7 @@ import loc from '../support/locators'
 import '../support/commands'
 import '../support/commandsForm'
 
-const rows = Cypress.env('excelRows') ? JSON.parse(Cypress.env('excelRows')) : [];
+const rows = Cypress.expose('excelRows') ? JSON.parse(Cypress.expose('excelRows')) : [];
 
 describe('Formulário', () => {
     beforeEach(() => {
@@ -61,7 +61,7 @@ describe('Formulário', () => {
 describe('Formulário XLSX', () => {
   if (!rows.length) {
     it('Nenhuma linha encontrada na planilha', () => {
-      cy.log('Sem dados no Excel');
+      cy.log('Sem dados no arquivo XLSX para executar os testes.');
     });
     return;
   }

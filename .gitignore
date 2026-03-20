@@ -140,6 +140,9 @@ vite.config.ts.timestamp-*
 
 # Others
 .DS_Store
+/.DS_Store
+**/.DS_Store
+./.DS_Store
 cypress/.DS_Store
 cypress/**/.DS_Store
 cypress/screenshots/
