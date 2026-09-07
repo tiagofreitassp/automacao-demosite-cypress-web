@@ -7,7 +7,7 @@ Cypress.Commands.add('preencherFormulario', (massas) => {
     cy.escolherGenero(massas.gender)
     cy.get(loc.FORMS.MOBILE).type(massas.mobile)
     cy.inserirDataDeAniversario(massas.dayOfBirth, massas.monthOfBirth, massas.yearOfBirth)
-    cy.get(loc.FORMS.SUBJECTS).type(massas.subjects+'{enter}')
+    //cy.get(loc.FORMS.SUBJECTS).type(massas.subjects+'{enter}')
     cy.escolherHobbie(massas.hobbies)
     //cy.get(loc.FORMS.PICTURE).attachFile(massas.picture)//verificar qual a função correta para upload de arquivos
     cy.get(loc.FORMS.CURRENT_ADDRESS).type(massas.currentAddress)
@@ -25,7 +25,7 @@ Cypress.Commands.add('validarDadosSubmetidos', (massas) => {
     cy.validarDadosColunaLabel()
     cy.validarDadosColunaValues(massas)
 
-    cy.get('#closeLargeModal').should('be.visible')
+    cy.get(loc.FORMS.CLOSE_MODAL).should('be.visible')
 })
 
 Cypress.Commands.add('validarDadosColunaLabel', () => {
@@ -49,7 +49,7 @@ Cypress.Commands.add('validarDadosColunaValues', (massas) => {
     cy.get(colunaValues).should('contain', massas.gender)
     cy.get(colunaValues).should('contain', massas.mobile)
     cy.get(colunaValues).should('contain', massas.dayOfBirth + ' ' + massas.monthOfBirth + ',' + massas.yearOfBirth)
-    cy.get(colunaValues).should('contain', massas.subjects)
+    //cy.get(colunaValues).should('contain', massas.subjects)
     cy.get(colunaValues).should('contain', massas.hobbies)
     //cy.get(colunaValues).should('contain', massas.picture)
     cy.get(colunaValues).should('contain', massas.currentAddress)

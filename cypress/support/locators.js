@@ -22,7 +22,8 @@ const locators = {
         CURRENT_ADDRESS: "#currentAddress",
         STATE: "#state",
         CITY: "#city",
-        SUBMIT: "#submit"
+        SUBMIT: "#submit",
+        CLOSE_MODAL: "#closeLargeModal"
     }
 }
 
