@@ -139,6 +139,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Others
+DS_Store
 .DS_Store
 /.DS_Store
 **/.DS_Store
