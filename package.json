@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/tiagofreitassp/automacao-demosite-cypress-web#readme",
   "devDependencies": {
-    "cypress": "^16.1.1",
+    "cypress": "^16.2.0",
     "cypress-xpath": "^2.0.1",
     "dotenv": "^18.0.6",
     "xlsx": "^0.18.5"
